@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import "./Home.css";
+import Count from '../Count/Count'
+
 
 
 export default function Home() {
@@ -32,51 +34,9 @@ export default function Home() {
                 </div>
             </div>
             <div className="row mb-3">
-                <div className="col-xl-3 col-sm-6 py-2">
-                    <div className="card bg-dark text-white h-100">
-                        <div className="card-body bg-dark">
-                            <div className="rotate">
-                                <i className="fa fa-user fa-4x"></i>
-                            </div>
-                            <h6 className="text-uppercase">Users</h6>
-                            <h1 className="display-4">134</h1>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-xl-3 col-sm-6 py-2">
-                    <div className="card text-white bg-danger h-100">
-                        <div className="card-body bg-danger">
-                            <div className="rotate">
-                                <i className="fa fa-list fa-4x"></i>
-                            </div>
-                            <h6 className="text-uppercase">Events</h6>
-                            <h1 className="display-4">87</h1>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-xl-3 col-sm-6 py-2">
-                    <div className="card text-white bg-info h-100">
-                        <div className="card-body bg-info">
-                            <div className="rotate">
-                                <i className="fa fa-twitter fa-4x"></i>
-                            </div>
-                            <h6 className="text-uppercase">LandMarks</h6>
-                            <h1 className="display-4">125</h1>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-xl-3 col-sm-6 py-2">
-                    <div className="card text-white bg-warning h-100">
-                        <div className="card-body">
-                            <div className="rotate">
-                                <i className="fa fa-share fa-4x"></i>
-                            </div>
-                            <h6 className="text-uppercase">Venues</h6>
-                            <h1 className="display-4">36</h1>
-                        </div>
-                    </div>
-                </div>
+            <Count/>
             </div>
+
 
         </div>
     )

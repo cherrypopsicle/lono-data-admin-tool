@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import Select from 'react-select';
+import makeAnimated from 'react-select/animated';
 import './EventType.css'
+
+
+const animatedComponents = makeAnimated();
 
 export default function EventType(props) {
     const [state, setState] = useState();
@@ -29,7 +33,7 @@ export default function EventType(props) {
     }
 
     const checkoption = (id) => {
-        setState({label:optionhashmapforreference[id],value:id})
+        setState([{label:optionhashmapforreference[id],value:id}])
     }
 
     useEffect(() => {
@@ -64,106 +68,32 @@ export default function EventType(props) {
             color: state.isSelected ? 'red' : 'blue',
             padding: 20,
           }),
-        //   control: () => ({
-        //     // none of react-select's styles are passed to <Control />
-        //     width: 200,
-        //   }),
-        //   singleValue: (provided, state) => {
-        //     const opacity = state.isDisabled ? 0.5 : 1;
-        //     const transition = 'opacity 300ms';
-        
-        //     return { ...provided, opacity, transition };
-        //   }
       }
 
-    const handleChange = (event) => {
-        console.log(event.value)
-        switch (event.value) {
-            case "1":
-                setState(event);
-                props.handleChange({ target: { name: "EventType", value: [1] } });
-                break;
-            case "2":
-                setState(event);
-                props.handleChange({ target: { name: "EventType", value: [2] } });
-                break;
-            case "3":
-                setState(event);
-                props.handleChange({ target: { name: "EventType", value: [3] } });
-                break;
-            case "4":
-                setState(event);
-                props.handleChange({ target: { name: "EventType", value: [4] } });
-                break;
-            case "5":
-                setState(event);
-                props.handleChange({ target: { name: "EventType", value: [5] } });
-                break;
-            case "6":
-                setState(event);
-                props.handleChange({ target: { name: "EventType", value: [6] } });
-                break;
-            case "7":
-                setState(event);
-                props.handleChange({ target: { name: "EventType", value: [7] } });
-                break;
-            case "8":
-                setState(event);
-                props.handleChange({ target: { name: "EventType", value: [8] } });
-                break;
-            case "9":
-                setState(event);
-                props.handleChange({ target: { name: "EventType", value: [9] } });
-                break;
-            case "10":
-                setState(event);
-                props.handleChange({ target: { name: "EventType", value: [10] } });
-                break;
-            case "11":
-                setState(event);
-                props.handleChange({ target: { name: "EventType", value: [11] } });
-                break;
-            case "12":
-                setState(event);
-                props.handleChange({ target: { name: "EventType", value: [12] } });
-                break;
-            case "13":
-                setState(event);
-                props.handleChange({ target: { name: "EventType", value: [13] } });
-                break;
-            case "14":
-                setState(event);
-                props.handleChange({ target: { name: "EventType", value: [14] } });
-                break;
-            case "15":
-                setState(event);
-                props.handleChange({ target: { name: "EventType", value: [15] } });
-                break;
-            case "16":
-                setState(event);
-                props.handleChange({ target: { name: "EventType", value: [16] } });
-                break;
-            case "17":
-                setState(event);
-                props.handleChange({ target: { name: "EventType", value: [17] } });
-                break;
-            case "18":
-                setState(event);
-                props.handleChange({ target: { name: "EventType", value: [18] } });
-                break;
-            case "19":
-                setState(event);
-                props.handleChange({ target: { name: "EventType", value: [19] } });
-                break;
-
-            default:
-                props.handleChange({ target: { name: "EventType", value: [1] } });
-                break;
+    const handleChange = async(event) => {
+        console.log(event)
+        if(event !== null){
+            let res = []
+        await event.forEach(value => res.push(value.value))
+        props.handleChange({target:{name:"EventType",value:res}});
+        setState(event)
+        }else{
+            props.handleChange({target:{name:"EventType",value:[]}})
+            setState([])
         }
     }
     return (
         <div>
-            <Select options={options} styles={customStyles} onChange={handleChange} value={state} />
+            <Select
+                closeMenuOnSelect={false}
+                styles={customStyles}
+                components={animatedComponents}
+                defaultValue={props.value}
+                isMulti
+                options={options}
+                onChange={handleChange}
+                value={state}
+            />
         </div>
     )
 }

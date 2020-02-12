@@ -26,7 +26,9 @@ const useForm = (callback) => {
     const [error,seterror] = useState(false)
 
    const handleChange = e => {
-        const { name, value } = e.target
+        const target = e.target
+        const name = target.name;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
         setValues({
             ...values,
             [name]: value

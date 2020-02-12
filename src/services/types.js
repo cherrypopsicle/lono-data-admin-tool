@@ -55,12 +55,12 @@ export const actionType = {
 }
 
 export const actionTypeCheck = (arr)=>{
-    let result = "";
-    arr.forEach(data =>{
-        result = result + actionType[data]+ ","
-    });
+  let result = arr.reduce((total,current) =>{
+    return total + ',' + actionType[current]
+  },"")
 
-    return result.splice(0,result.length -1)
+  let newRes = result.slice(1,result.length)
+  return newRes
 }
 
 export const eventType = {
@@ -117,12 +117,13 @@ export const eventType = {
   }
 
   export const eventTypeCheck = (arr)=>{
-    let result = "";
-    arr.forEach(data =>{
-        result = result + actionType[data]+ ","
-    });
+    
+    let result = arr.reduce((total,current) =>{
+      return total + ',' + eventType[current]
+    },"")
 
-    return result.splice(0,result.length -1)
+    let newRes = result.slice(1,result.length)
+    return newRes
 }
 
 
