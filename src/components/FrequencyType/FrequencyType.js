@@ -10,6 +10,7 @@ export default function FrequencyType(props) {
         "0":"Daily",
         "1":"Weekly",
         "2":"Monthly",
+        "3":"Once"
     }
 
     const checkoption = (id) => {
@@ -24,7 +25,8 @@ export default function FrequencyType(props) {
     const options = [
         {value: "0", label: "Daily"}
         , { value: "1", label: "Weekly" }
-        , { value: "2", label: "Monthly" }
+        , { value: "2", label: "Monthly" },
+        { value: "3", label: "Once" }
     ];
 
     const customStyles = {
@@ -50,6 +52,10 @@ export default function FrequencyType(props) {
             case "2":
                 setState(event);
                 props.handleChange({ target: { name: "frequencyType", value: 2 } });
+                break;
+            case "3":
+                setState(event);
+                props.handleChange({ target: { name: "frequencyType", value: 3 } });
                 break;
             default:
                 props.handleChange({ target: { name: "frequencyType", value: 1 } });

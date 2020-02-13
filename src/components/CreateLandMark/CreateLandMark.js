@@ -9,7 +9,6 @@ export default function CreateLandMark() {
 
     const submit = (success, error, isSubmitting) => {
         console.log(values)
-        let token = "Bearer " + localStorage.getItem('jwt').substring(1, localStorage.getItem('jwt').length - 1);
         try {
             fetch(`https://api.lono.app/api/landmark/create`, {
                 method: 'POST',

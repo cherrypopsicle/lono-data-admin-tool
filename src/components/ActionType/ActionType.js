@@ -1,4 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, {
+    useState,
+    useEffect
+} from 'react'
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
 import '../EventType/EventType.css'
@@ -9,7 +12,7 @@ const animatedComponents = makeAnimated();
 export default function EventType(props) {
     const [state, setState] = useState();
 
-    
+
     const optionhashmapforreference = {
         '1': 'Eat',
         '2': 'Drink',
@@ -21,29 +24,61 @@ export default function EventType(props) {
         '8': 'Celebrate',
         '9': 'sing',
         '10': 'study'
-        }
+    }
 
-    const checkoption = (id) => {
-        setState([{label:optionhashmapforreference[id],value:id}])
+    const checkoption = (arr) => {
+        let currentdata = [];
+        if (arr.length === 0) {
+            setState([])
+        } else {
+            arr.forEach((id) => {
+                let data = {
+                    label: optionhashmapforreference[id],
+                    value: id
+                };
+                currentdata.push(data)
+            })
+
+            setState(currentdata)
+        }
     }
 
     useEffect(() => {
         checkoption(props.value);
-    },[])
+    }, [])
 
 
-    const options = [
-        {value: "1", label: "Eat"}
-        , { value: "2", label: "Drink" }
-        , { value: "3", label: "Dance" }
-        , { value: "4", label: "Play" }
-        , { value: "5", label: "Explore" }
-        , { value: "6", label: "Watch" }
-        , { value: "7", label: "Networking" }
-        , { value: "8", label: "Celebrate" }
-        , { value: "9", label: "Sing" }
-        , { value: "10", label: "Study" }
-    ];
+    const options = [{
+        value: "1",
+        label: "Eat"
+    }, {
+        value: "2",
+        label: "Drink"
+    }, {
+        value: "3",
+        label: "Dance"
+    }, {
+        value: "4",
+        label: "Play"
+    }, {
+        value: "5",
+        label: "Explore"
+    }, {
+        value: "6",
+        label: "Watch"
+    }, {
+        value: "7",
+        label: "Networking"
+    }, {
+        value: "8",
+        label: "Celebrate"
+    }, {
+        value: "9",
+        label: "Sing"
+    }, {
+        value: "10",
+        label: "Study"
+    }];
 
     const customStyles = {
         option: (provided, state) => ({
@@ -51,33 +86,56 @@ export default function EventType(props) {
             borderBottom: '1px dotted pink',
             color: state.isSelected ? 'red' : 'blue',
             padding: 20,
-          }),
-      }
+        }),
+    }
 
-    const handleChange = async(event) => {
+    const handleChange = async (event) => {
         console.log(event)
-        if(event !== null){
+        if (event !== null) {
             let res = []
-        await event.forEach(value => res.push(value.value))
-        props.handleChange({target:{name:"ActionType",value:res}});
-        setState(event)
-        }else{
-            props.handleChange({target:{name:"ActionType",value:[]}})
+            await event.forEach(value => res.push(value.value))
+            props.handleChange({
+                target: {
+                    name: "ActionType",
+                    value: res
+                }
+            });
+            setState(event)
+        } else {
+            props.handleChange({
+                target: {
+                    name: "ActionType",
+                    value: []
+                }
+            })
             setState([])
         }
     }
-    return (
-        <div>
-            <Select
-                closeMenuOnSelect={false}
-                styles={customStyles}
-                components={animatedComponents}
-                defaultValue={props.value}
-                isMulti
-                options={options}
-                onChange={handleChange}
-                value={state}
-            />
-        </div>
+    return ( <
+        div >
+        <
+        Select closeMenuOnSelect = {
+            false
+        }
+        styles = {
+            customStyles
+        }
+        components = {
+            animatedComponents
+        }
+        defaultValue = {
+            props.value
+        }
+        isMulti options = {
+            options
+        }
+        onChange = {
+            handleChange
+        }
+        value = {
+            state
+        }
+        /> <
+        /div>
     )
 }

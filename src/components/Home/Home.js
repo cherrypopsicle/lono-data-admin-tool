@@ -3,7 +3,6 @@ import "./Home.css";
 import Count from '../Count/Count'
 
 
-
 export default function Home() {
 
     const [quote, setquote] = useState("");

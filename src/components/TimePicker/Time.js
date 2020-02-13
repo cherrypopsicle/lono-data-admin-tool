@@ -13,7 +13,7 @@ export default function Time(props) {
         selected={startDate}
         onChange={handleChange}
         showTimeSelect
-        minDate={(props.startval)? props.startval:new Date()}
+        minDate={(props.startval)? parseISO(props.startval):parseISO(new Date())}
         maxDate={addDays(parseISO(new Date()), 365)}
         timeFormat="HH:mm"
         timeIntervals={15}

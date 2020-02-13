@@ -108,7 +108,7 @@ export default function CreateEvent() {
                                 <div className="form-group row">
                                     <label className="col-lg-3 col-form-label form-control-label">EventType</label>
                                     <div className="col-lg-9" htmlFor="lng">
-                                        <EventType handleChange={handleChange} value={values.EventType[0]} />
+                                        <EventType handleChange={handleChange} value={values.EventType} />
                                     </div>
                                 </div>
                                 <div className="form-group row">
@@ -120,7 +120,7 @@ export default function CreateEvent() {
                                 <div className="form-group row">
                                     <label className="col-lg-3 col-form-label form-control-label">ActionType</label>
                                     <div className="col-lg-9" htmlFor="lng">
-                                        <ActionType handleChange={handleChange} value={values.ActionType[0]} />
+                                        <ActionType handleChange={handleChange} value={values.ActionType} />
                                     </div>
                                 </div>
                                 <div className="form-group row">

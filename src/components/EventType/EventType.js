@@ -32,9 +32,21 @@ export default function EventType(props) {
         "19": "Physical",
     }
 
-    const checkoption = (id) => {
-        setState([{label:optionhashmapforreference[id],value:id}])
-    }
+    const checkoption = (arr) => {
+        let currentdata = [];
+        if (arr.length === 0) {
+            setState([])
+        } else {
+            arr.forEach((id) => {
+                let data = {
+                    label: optionhashmapforreference[id],
+                    value: id
+                };
+                currentdata.push(data)
+            })
+
+            setState(currentdata)
+        }    }
 
     useEffect(() => {
         checkoption(props.value);

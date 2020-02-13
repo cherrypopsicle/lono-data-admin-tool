@@ -4,21 +4,22 @@ import { useState } from 'react';
 
 const useForm = (callback) => {
 
-    const defaultProps = {       
-		"name": "",
-        "photoUrl": "",
-        "repeat": false,
-        "frequencyType": "1",
-        "location": "",
-        "starts": "0001-01-01T16:00:00.000Z",
-        "ends": "0001-01-01T16:00:00.000Z",
+    const defaultProps =   {
+        "name": "",
         "description": "",
-        "lat": "",
-        "lng": "",
+        "phone": "",
         "city": "",
-        "ActionType": [3],
-        "EventType": [9]
-  }
+        "hyperlink": "",
+        "address": "",
+        "lat": "", 
+        "lng": "",
+        "profileurl": "",
+        "actiontypes": [1,2],
+        "venuetypes": [9,10],
+        "musictypes": [],
+        "cuisinetypes": [],
+        "openclose": [{}, {}, {}, {}, {}, {}, {}]
+    }
     const [values, setValues] = useState(defaultProps);
     //state for errors
     const [isSubmitting, setIsSubmitting]  = useState(false);
@@ -49,7 +50,7 @@ const useForm = (callback) => {
 
     const handleLocation = place => {
         let city = place.formatted_address.split(',')[1]
-        setValues({...values,lat:place.geometry.location.lat,lng:place.geometry.location.lng,city:city,location:place.formatted_address})
+        setValues({...values,lat:place.geometry.location.lat,lng:place.geometry.location.lng,city:city,address:place.formatted_address})
     }
     return {
         handleLocation,
