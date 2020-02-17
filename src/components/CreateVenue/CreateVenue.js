@@ -91,12 +91,6 @@ export default function CreateVenue() {
                                     </div>
                                 </div>
                                 <div className="form-group row">
-                                    <label className="col-lg-3 col-form-label form-control-label">Profile Url</label>
-                                    <div className="col-lg-9" htmlFor="profileurl">
-                                        <input className="form-control" id="profileurl" name="profileurl" type="text" onChange={handleChange} value={values.profileurl} />
-                                    </div>
-                                </div>
-                                <div className="form-group row">
                                     <label className="col-lg-3 col-form-label form-control-label">HyperLink</label>
                                     <div className="col-lg-9" htmlFor="hyperlink">
                                         <input className="form-control" id="hyperlink" name="hyperlink" type="text" onChange={handleChange} value={values.hyperlink} />
@@ -106,6 +100,18 @@ export default function CreateVenue() {
                                     <label className="col-lg-3 col-form-label form-control-label">VenueType</label>
                                     <div className="col-lg-9" htmlFor="lng">
                                         <VenueType handleChange={handleChange} value={values.venuetypes}/>
+                                    </div>
+                                </div>
+                                <div className="form-group row">
+                                    <label className="col-lg-3 col-form-label form-control-label">ActionType</label>
+                                    <div className="col-lg-9" htmlFor="lng">
+                                        <ActionType handleChange={handleChange} value={values.actiontypes} />
+                                    </div>
+                                </div>
+                                <div className="form-group row">
+                                    <label className="col-lg-3 col-form-label form-control-label">ActionType</label>
+                                    <div className="col-lg-9" htmlFor="lng">
+                                        <ActionType handleChange={handleChange} value={values.actiontypes} />
                                     </div>
                                 </div>
                                 <div className="form-group row">
@@ -136,12 +142,6 @@ export default function CreateVenue() {
                                     <label className="col-lg-3 col-form-label form-control-label">Longitude</label>
                                     <div className="col-lg-9" htmlFor="lng">
                                         <input className="form-control" id="lng" name="lng" type="text" placeholder="Longitude" onChange={handleChange} value={values.lng} readOnly />
-                                    </div>
-                                </div>
-                                <div className="form-group row">
-                                    <label className="col-lg-3 col-form-label form-control-label">Repeats</label>
-                                    <div className="col-lg-9" htmlFor="lng">
-                                        <input type="checkbox" name="repeat" onChange={handleChange} checked={values.repeat} aria-label="Checkbox for following text input"/>
                                     </div>
                                 </div>
                                 {success && (<div class="alert alert-success" role="alert"> Success</div>)}
