@@ -47,7 +47,7 @@ export default function CreateEvent() {
                         <div className="modal-dialog modal-dialog-centered" role="document">
                             <div className="modal-content">
                                 <div className="modal-header">
-                                    <h5 className="modal-title" id="exampleModalLongTitle">Create LandMark</h5>
+                                    <h5 className="modal-title" id="exampleModalLongTitle">Create Event</h5>
                                     <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -70,7 +70,7 @@ export default function CreateEvent() {
                                 </div>
                                 <div className="modal-footer">
                                     <button type="button" className="btn btn-secondary" data-dismiss="modal" disabled={isSubmitting}>Close</button>
-                                    <button type="submit" className="btn btn-danger" onClick={handleSubmit} data-dismiss="modal" disabled={isSubmitting} >Create Event</button>
+                                    <button type="submit" className="btn btn-success" onClick={handleSubmit} data-dismiss="modal" disabled={isSubmitting} >Create Event</button>
                                 </div>
                             </div>
                         </div>
