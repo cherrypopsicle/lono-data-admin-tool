@@ -42,8 +42,9 @@ export default function Login(props) {
         <React.Fragment>
             <div className="jumbotron jumbotron-fluid ">
                 <div className="container">
-                    <h1 className="display-4"><span className="container-span"><img src={lonoimage} alt="Lono app brand" className="image-jumbo"/></span>Login</h1>
-                    <p className="lead">This is Lono's Offical Data Tool.</p>
+                    <span className="container-span"><img src={lonoimage} alt="Lono app brand" className="image-jumbo"/></span>
+                    <h3>This is Lono's Offical Data Tool.</h3>
+                    <h4> Login </h4>
                 </div>
             </div>
             <div className="login">

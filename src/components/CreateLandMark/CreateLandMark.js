@@ -51,8 +51,8 @@ export default function CreateLandMark() {
                                 <div className="modal-body">
                                     <ul className="list-group">
                                         <li className="list-group-item">Name : {values.name}</li>
-                                        <li className="list-group-item list-group-item-primary">Description : {values.description}</li>
-                                        <li className="list-group-item list-group-item-secondary">Hyperlink : {values.Hyperlink}</li>
+                                        <li className="list-group-item list-group-item-primary">Description: {values.description}</li>
+                                        <li className="list-group-item list-group-item-secondary">HyperLink: {values.Hyperlink}</li>
                                         <li className="list-group-item list-group-item-success">PhotoUrl: {values.photourl}</li>
                                         <li className="list-group-item list-group-item-danger">Address: {values.address}</li>
                                         <li className="list-group-item list-group-item-warning">City: {values.city}</li>
@@ -63,7 +63,7 @@ export default function CreateLandMark() {
                                 </div>
                                 <div className="modal-footer">
                                     <button type="button" className="btn btn-secondary" data-dismiss="modal" disabled={isSubmitting}>Close</button>
-                                    <button type="submit" className="btn btn-danger" onClick={handleSubmit} data-dismiss="modal" value="Create Landmark" disabled={isSubmitting}/>
+                                    <button type="submit" className="btn btn-success" onClick={handleSubmit} data-dismiss="modal" value="Create Landmark" disabled={isSubmitting}> Create LandMark </button>
                                 </div>
                             </div>
                         </div>

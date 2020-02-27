@@ -45,7 +45,7 @@ export default function CreateVenue() {
                         <div className="modal-dialog modal-dialog-centered" role="document">
                             <div className="modal-content">
                                 <div className="modal-header">
-                                    <h5 className="modal-title" id="exampleModalLongTitle">Create LandMark</h5>
+                                    <h5 className="modal-title" id="exampleModalLongTitle">Create Venue</h5>
                                     <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -54,9 +54,9 @@ export default function CreateVenue() {
                                     <ul className="list-group">
                                         <li className="list-group-item">Name : {values.name}</li>
                                         <li className="list-group-item list-group-item-primary">Description : {values.description}</li>
-                                        <li className="list-group-item list-group-item-primary">Hyperlink : {values.Hyperlink}</li>
+                                        <li className="list-group-item list-group-item-primary">HyperLink : {values.Hyperlink}</li>
                                         <li className="list-group-item list-group-item-primary">PhotoUrl: {values.photoUrl}</li>
-                                        <li className="list-group-item list-group-item-primary">Address: {values.address}</li>
+                                        <li className="list-group-item list-group-item-primary">Location: {values.address}</li>
                                         <li className="list-group-item list-group-item-primary">City: {values.city}</li>
                                         <li className="list-group-item list-group-item-primary">Latitude: {values.lat}</li>
                                         <li className="list-group-item list-group-item-primary">Longitude: {values.lng}</li>
@@ -67,7 +67,7 @@ export default function CreateVenue() {
                                 </div>
                                 <div className="modal-footer">
                                     <button type="button" className="btn btn-secondary" data-dismiss="modal" disabled={isSubmitting}>Close</button>
-                                    <button type="submit" className="btn btn-danger" onClick={handleSubmit} data-dismiss="modal" disabled={isSubmitting} >Create Event</button>
+                                    <button type="submit" className="btn btn-success" onClick={handleSubmit} data-dismiss="modal" disabled={isSubmitting} >Create Venue</button>
                                 </div>
                             </div>
                         </div>
@@ -97,26 +97,20 @@ export default function CreateVenue() {
                                     </div>
                                 </div>
                                 <div className="form-group row">
+                                    <label className="col-lg-3 col-form-label form-control-label">PhotoUrl</label>
+                                    <div className="col-lg-9" htmlFor="profileurl">
+                                        <input className="form-control" id="hyperlink" name="hyperlink" type="text" onChange={handleChange} value={values.profileurl} />
+                                    </div>
+                                </div>
+                                <div className="form-group row">
                                     <label className="col-lg-3 col-form-label form-control-label">VenueType</label>
-                                    <div className="col-lg-9" htmlFor="lng">
+                                    <div className="col-lg-9" htmlFor="venuetypes">
                                         <VenueType handleChange={handleChange} value={values.venuetypes}/>
                                     </div>
                                 </div>
                                 <div className="form-group row">
                                     <label className="col-lg-3 col-form-label form-control-label">ActionType</label>
-                                    <div className="col-lg-9" htmlFor="lng">
-                                        <ActionType handleChange={handleChange} value={values.actiontypes} />
-                                    </div>
-                                </div>
-                                <div className="form-group row">
-                                    <label className="col-lg-3 col-form-label form-control-label">ActionType</label>
-                                    <div className="col-lg-9" htmlFor="lng">
-                                        <ActionType handleChange={handleChange} value={values.actiontypes} />
-                                    </div>
-                                </div>
-                                <div className="form-group row">
-                                    <label className="col-lg-3 col-form-label form-control-label">ActionType</label>
-                                    <div className="col-lg-9" htmlFor="lng">
+                                    <div className="col-lg-9" htmlFor="actiontypes">
                                         <ActionType handleChange={handleChange} value={values.actiontypes} />
                                     </div>
                                 </div>
