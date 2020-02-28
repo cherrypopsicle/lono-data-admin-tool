@@ -5,15 +5,16 @@ import LandMarkType from '../LandMarkType/LandMarkType';
 
 import {landmarkTypeCheck} from '../../services/types'
 
-export default function CreateLandMark() {
+export default function UpdateLandMark(props) {
 
     const submit = (success, error, isSubmitting) => {
-        console.log(values)
+        let token = "Bearer " + localStorage.getItem('jwt').substring(1, localStorage.getItem('jwt').length - 1);
         try {
-            fetch(`https://api.lono.app/api/landmark/create`, {
+            fetch(`https://api.lono.app/api/landmark/update`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': token
                 },
                 body: JSON.stringify(values)
             }).then(res => {
@@ -33,7 +34,7 @@ export default function CreateLandMark() {
         }
     }
 
-    const { handleChange, handleLocation, values, handleSubmit, error, success, isSubmitting } = useForm(submit);
+    const { handleChange, handleLocation, values, handleSubmit, error, success, isSubmitting } = useForm(submit, props);
 
     return (
         <div className="container py-3">
@@ -43,7 +44,7 @@ export default function CreateLandMark() {
                         <div className="modal-dialog modal-dialog-centered" role="document">
                             <div className="modal-content">
                                 <div className="modal-header">
-                                    <h5 className="modal-title" id="exampleModalLongTitle">Create LandMark</h5>
+                                    <h5 className="modal-title" id="exampleModalLongTitle">Update LandMark</h5>
                                     <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -63,7 +64,7 @@ export default function CreateLandMark() {
                                 </div>
                                 <div className="modal-footer">
                                     <button type="button" className="btn btn-secondary" data-dismiss="modal" disabled={isSubmitting}>Close</button>
-                                    <button type="submit" className="btn btn-success" onClick={handleSubmit} data-dismiss="modal" value="Create Landmark" disabled={isSubmitting}> Create LandMark </button>
+                                    <button type="submit" className="btn btn-success" onClick={handleSubmit} data-dismiss="modal" value="Update Landmark" disabled={isSubmitting}> Update LandMark </button>
                                 </div>
                             </div>
                         </div>
@@ -133,7 +134,6 @@ export default function CreateLandMark() {
                                 <div className="form-group row">
                                     <label className="col-lg-3 col-form-label form-control-label"></label>
                                     <div className="col-lg-9">
-                                        <input type="reset" className="btn btn-secondary col-lg-6" value="Cancel" />
                                         <input type="reset" className="btn btn-primary col-lg-6" data-toggle="modal" data-target="#exampleModalCenter" value="Save Changes" />
                                     </div>
                                 </div>

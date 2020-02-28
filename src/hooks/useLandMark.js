@@ -2,18 +2,18 @@ import { useState } from 'react';
 
 //pass input errors back to form
 
-const useForm = (callback) => {
+const useForm = (callback, props = null) => {
 
     const defaultProps = {
-        "name": "",
-        "description": "",
-        "photourl": "",
-        "lat": "",
-        "lng": "",
-        "Hyperlink": "",
-        "address": "",
-        "city": "",
-        "landmarkType": 1
+        "name": props ? props.name : "",
+        "description": props ? props.description : "",
+        "photourl": props ? props.photourl : "",
+        "lat": props ? props.lat : "",
+        "lng": props ? props.lng : "",
+        "Hyperlink": props ? props.Hyperlink : "",
+        "address": props ? props.address : "",
+        "city": props ? props.city : "",
+        "landmarkType": props ? props.landmarkType : 1
     }
     const [values, setValues] = useState(defaultProps);
     //state for errors

@@ -10,6 +10,7 @@ import CreateEvent from './components/CreateEvent/CreateEvent'
 import CreateLandMark from './components/CreateLandMark/CreateLandMark'
 import CreateVenue from './components/CreateVenue/CreateVenue'
 import NavBar from './components/Navbar/Navbar'
+import UpdateLandMark from './components/UpdateLandMark/UpdateLandMark'
 import LocationPicker from './components/LocationPicker/LocationPicker'
 import Donations from './components/Donations/Donations'
 import ErrorPage from './components/ErrorPage/ErrorPage'
@@ -28,6 +29,7 @@ export default function MainRouter() {
             <PrivateRoute exact path='/createVenue' component={CreateVenue}></PrivateRoute>
             <PrivateRoute exact path='/createEvent' component={CreateEvent}></PrivateRoute>
             <PrivateRoute exact path='/createLandMark' component={CreateLandMark}></PrivateRoute>
+            {/* <PrivateRoute exact path='/updateLandmark' component={UpdateLandMark}></PrivateRoute> */}
             <Route exact path = '/xyz' component={LocationPicker}></Route>
             <Route component={ErrorPage}/>
         </Switch>
