@@ -33,7 +33,7 @@ export default function LocationPicker(props) {
 
     return (
         <div>
-            <input className="form-control" type="text" name="address" onChange={handleChange} value={address} placeholder="Enter Address" readOnly={loading}/>
+            <input className="form-control" type="text" name="address" onChange={handleChange} value={props.address} placeholder="Enter Address" readOnly={loading}/>
                 {predictions && (
                 <ul className="list-group zindex-popover">
                     {predictions.map(pred =>(

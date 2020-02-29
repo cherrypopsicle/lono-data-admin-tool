@@ -30,7 +30,7 @@ const useForm = (callback, props = null) => {
 
         setSucess(false)
         seterror(false)
-        
+         console.log(values);
     }
 
     const handleClear = () =>{

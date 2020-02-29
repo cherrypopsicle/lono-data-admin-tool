@@ -40,7 +40,7 @@ export default function UpdateLandMark(props) {
         <div className="container py-3">
             <div className="row">
                 <div className="mx-auto col-lg-12">
-                    <div className="modal fade" id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    {/* <div className="modal fade" id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                         <div className="modal-dialog modal-dialog-centered" role="document">
                             <div className="modal-content">
                                 <div className="modal-header">
@@ -52,14 +52,14 @@ export default function UpdateLandMark(props) {
                                 <div className="modal-body">
                                     <ul className="list-group">
                                         <li className="list-group-item">Name : {values.name}</li>
-                                        <li className="list-group-item list-group-item-primary">Description: {values.description}</li>
-                                        <li className="list-group-item list-group-item-secondary">HyperLink: {values.Hyperlink}</li>
-                                        <li className="list-group-item list-group-item-success">PhotoUrl: {values.photourl}</li>
-                                        <li className="list-group-item list-group-item-danger">Address: {values.address}</li>
-                                        <li className="list-group-item list-group-item-warning">City: {values.city}</li>
-                                        <li className="list-group-item list-group-item-info">Latitude: {values.lat}</li>
-                                        <li className="list-group-item list-group-item-light">Longitude: {values.lng}</li>
-                                        <li className="list-group-item list-group-item-dark">LandMark Type: {landmarkTypeCheck(values.landmarkType)}</li>
+                                        <li className="list-group-item list-group-item-primary">Description: {props.description}</li>
+                                        <li className="list-group-item list-group-item-secondary">HyperLink: {props.Hyperlink}</li>
+                                        <li className="list-group-item list-group-item-success">PhotoUrl: {props.photourl}</li>
+                                        <li className="list-group-item list-group-item-danger">Address: {props.address}</li>
+                                        <li className="list-group-item list-group-item-warning">City: {props.city}</li>
+                                        <li className="list-group-item list-group-item-info">Latitude: {props.lat}</li>
+                                        <li className="list-group-item list-group-item-light">Longitude: {props.lng}</li>
+                                        <li className="list-group-item list-group-item-dark">LandMark Type: {landmarkTypeCheck(props.landmarkType)}</li>
                                     </ul>
                                 </div>
                                 <div className="modal-footer">
@@ -68,7 +68,7 @@ export default function UpdateLandMark(props) {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                     <div className="card text-white bg-dark">
                         <div className="card-header">
                             <h4 className="mb-0">LandMark Information</h4>
@@ -78,31 +78,31 @@ export default function UpdateLandMark(props) {
                                 <div className="form-group row">
                                     <label className="col-lg-3 col-form-label form-control-label" htmlFor="name">Name</label>
                                     <div className="col-lg-9">
-                                        <input className="form-control" id="name" name="name" type="text" onChange={handleChange} value={values.name} />
+                                        <input className="form-control" id="name" name="name" type="text" onChange={handleChange} value={props.name} />
                                     </div>
                                 </div>
                                 <div className="form-group row">
                                     <label className="col-lg-3 col-form-label form-control-label" htmlFor="description">Description</label>
                                     <div className="col-lg-9">
-                                        <textarea className="form-control" id="description" type="text" name="description" onChange={handleChange} value={values.description} />
+                                        <textarea className="form-control" id="description" type="text" name="description" onChange={handleChange} value={props.description} />
                                     </div>
                                 </div>
                                 <div className="form-group row">
                                     <label className="col-lg-3 col-form-label form-control-label">Photourl</label>
                                     <div className="col-lg-9" htmlFor="photourl">
-                                        <input className="form-control" id="photourl" name="photourl" type="text" onChange={handleChange} value={values.photourl} />
+                                        <input className="form-control" id="photourl" name="photourl" type="text" onChange={handleChange} value={props.photourl} />
                                     </div>
                                 </div>
                                 <div className="form-group row">
                                     <label className="col-lg-3 col-form-label form-control-label">HyperLink</label>
                                     <div className="col-lg-9" htmlFor="Hyperlink">
-                                        <input className="form-control" id="Hyperlink" name="Hyperlink" type="text" onChange={handleChange} value={values.Hyperlink} />
+                                        <input className="form-control" id="Hyperlink" name="Hyperlink" type="text" onChange={handleChange} value={props.Hyperlink} />
                                     </div>
                                 </div>
                                 <div className="form-group row">
                                     <label className="col-lg-3 col-form-label form-control-label">LandMarkType</label>
                                     <div className="col-lg-9" htmlFor="photourl">
-                                        <LandMarkType handleChange={handleChange} value={values.landmarkType || 0} />
+                                        <LandMarkType handleChange={handleChange} value={props.landmarkType || 0} />
                                     </div>
                                 </div>
                                 <div className="form-group row">
@@ -114,19 +114,19 @@ export default function UpdateLandMark(props) {
                                 <div className="form-group row">
                                     <label className="col-lg-3 col-form-label form-control-label">City</label>
                                     <div className="col-lg-9" htmlFor="city">
-                                    <input className="form-control" id="city" onChange={handleChange} name="city" type="text" placeholder="City" value={values.city}/>
+                                    <input className="form-control" id="city" onChange={handleChange} name="city" type="text" placeholder="City" value={props.city}/>
                                     </div>
                                 </div>
                                 <div className="form-group row">
                                     <label className="col-lg-3 col-form-label form-control-label">Latitude</label>
                                     <div className="col-lg-9" htmlFor="lat">
-                                        <input className="form-control" id="lat" name="lat" type="text" placeholder="Latitude" value={values.lat} readOnly />
+                                        <input className="form-control" id="lat" name="lat" type="text" placeholder="Latitude" value={props.lat} readOnly />
                                     </div>
                                 </div>
                                 <div className="form-group row">
                                     <label className="col-lg-3 col-form-label form-control-label">Longitude</label>
                                     <div className="col-lg-9" htmlFor="lng">
-                                        <input className="form-control" id="lng" name="lng" type="text" placeholder="Longitude" onChange={handleChange} value={values.lng} readOnly />
+                                        <input className="form-control" id="lng" name="lng" type="text" placeholder="Longitude" onChange={handleChange} value={props.lng} readOnly />
                                     </div>
                                 </div>
                                 {success && (<div class="alert alert-success" role="alert"> Success</div>)}
