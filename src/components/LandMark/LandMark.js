@@ -20,7 +20,7 @@ export default function LandMark() {
     const submit = (success, error, isSubmitting) => {
         let token = "Bearer " + localStorage.getItem('jwt').substring(1, localStorage.getItem('jwt').length - 1);
         try {
-            fetch(`https://api.lono.app/api/landmark/update`, {
+            fetch(`http://localhost:65049/api/landmark/update`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -96,83 +96,85 @@ export default function LandMark() {
                         <div className="modal fade" id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div className="modal-dialog modal-dialog-centered" role="document">
                                 <div className="modal-content">
+
                                     <div className="modal-header">
                                         <h5 className="modal-title" id="exampleModalLongTitle">Edit LandMark</h5>
                                         <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                                    <div className="modal-body">
-                                        <form className="form" role="form" autoComplete="off" onSubmit={handleSubmit}>
-                                            <div className="form-group row">
-                                                <label className="col-lg-3 col-form-label form-control-label" htmlFor="name">Name</label>
-                                                <div className="col-lg-9">
-                                                    <input className="form-control" id="name" name="name" type="text" onChange={handleChange} placeholder={landmark.name} />
+                                        <div className="modal-body">
+                                            <form className="form" role="form" autoComplete="off" onSubmit={handleSubmit}>
+                                                <div className="form-group row">
+                                                    <label className="col-lg-3 col-form-label form-control-label" htmlFor="name">Name</label>
+                                                    <div className="col-lg-9">
+                                                        <input className="form-control" id="name" name="name" type="text" onChange={handleChange} placeholder={landmark.name} />
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div className="form-group row">
-                                                <label className="col-lg-3 col-form-label form-control-label" htmlFor="description">Description</label>
-                                                <div className="col-lg-9">
-                                                    <textarea className="form-control" id="description" type="text" name="description" onChange={handleChange} value={landmark.description} />
+                                                <div className="form-group row">
+                                                    <label className="col-lg-3 col-form-label form-control-label" htmlFor="description">Description</label>
+                                                    <div className="col-lg-9">
+                                                        <textarea className="form-control" id="description" type="text" name="description" onChange={handleChange} placeholder={landmark.description} />
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div className="form-group row">
-                                                <label className="col-lg-3 col-form-label form-control-label">Photourl</label>
-                                                <div className="col-lg-9" htmlFor="photourl">
-                                                    <input className="form-control" id="photourl" name="photourl" type="text" onChange={handleChange} value={landmark.photoUrl} />
+                                                <div className="form-group row">
+                                                    <label className="col-lg-3 col-form-label form-control-label">Photourl</label>
+                                                    <div className="col-lg-9" htmlFor="photourl">
+                                                        <input className="form-control" id="photourl" name="photourl" type="text" onChange={handleChange} placeholder={landmark.photoUrl} />
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div className="form-group row">
-                                                <label className="col-lg-3 col-form-label form-control-label">HyperLink</label>
-                                                <div className="col-lg-9" htmlFor="Hyperlink">
-                                                    <input className="form-control" id="Hyperlink" name="Hyperlink" type="text" onChange={handleChange} value={landmark.hyperLink} />
+                                                <div className="form-group row">
+                                                    <label className="col-lg-3 col-form-label form-control-label">HyperLink</label>
+                                                    <div className="col-lg-9" htmlFor="Hyperlink">
+                                                        <input className="form-control" id="Hyperlink" name="Hyperlink" type="text" onChange={handleChange} placeholder={landmark.hyperLink} />
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div className="form-group row">
-                                                <label className="col-lg-3 col-form-label form-control-label">LandMarkType</label>
-                                                <div className="col-lg-9" htmlFor="photourl">
-                                                    <LandMarkType handleChange={handleChange} value={landmark.landmarkType || 0} />
+                                                <div className="form-group row">
+                                                    <label className="col-lg-3 col-form-label form-control-label">LandMarkType</label>
+                                                    <div className="col-lg-9" htmlFor="photourl">
+                                                        <LandMarkType handleChange={handleChange} value={landmark.landmarkType || 0} />
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div className="form-group row">
-                                                <label className="col-lg-3 col-form-label form-control-label">Address</label>
-                                                <div className="col-lg-9" htmlFor="address">
-                                                    <LocationPicker address={landmark.address} select={handleLocation} />
+                                                <div className="form-group row">
+                                                    <label className="col-lg-3 col-form-label form-control-label">Address</label>
+                                                    <div className="col-lg-9" htmlFor="address">
+                                                        <LocationPicker address={landmark.address} select={handleLocation} />
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div className="form-group row">
-                                                <label className="col-lg-3 col-form-label form-control-label">City</label>
-                                                <div className="col-lg-9" htmlFor="city">
-                                                    <input className="form-control" id="city" onChange={handleChange} name="city" type="text" placeholder="City" value={landmark.city} />
+                                                <div className="form-group row">
+                                                    <label className="col-lg-3 col-form-label form-control-label">City</label>
+                                                    <div className="col-lg-9" htmlFor="city">
+                                                        <input className="form-control" id="city" onChange={handleChange} name="city" type="text" placeholder={landmark.city} />
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div className="form-group row">
-                                                <label className="col-lg-3 col-form-label form-control-label">Latitude</label>
-                                                <div className="col-lg-9" htmlFor="lat">
-                                                    <input className="form-control" id="lat" name="lat" type="text" placeholder="Latitude" value={landmark.lat} readOnly />
+                                                <div className="form-group row">
+                                                    <label className="col-lg-3 col-form-label form-control-label">Latitude</label>
+                                                    <div className="col-lg-9" htmlFor="lat">
+                                                        <input className="form-control" id="lat" name="lat" type="text" value={landmark.lat} placeholder={landmark.lat} readOnly />
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div className="form-group row">
-                                                <label className="col-lg-3 col-form-label form-control-label">Longitude</label>
-                                                <div className="col-lg-9" htmlFor="lng">
-                                                    <input className="form-control" id="lng" name="lng" type="text" placeholder="Longitude" onChange={handleChange} value={landmark.lng} readOnly />
+                                                <div className="form-group row">
+                                                    <label className="col-lg-3 col-form-label form-control-label">Longitude</label>
+                                                    <div className="col-lg-9" htmlFor="lng">
+                                                        <input className="form-control" id="lng" name="lng" type="text" placeholder="Longitude" onChange={handleChange} placeholder={landmark.lng} readOnly />
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            {success && (<div className="alert alert-success" role="alert"> Success</div>)}
-                                            {error && (<div className="alert alert-danger" role="alert"> Contact Vrushabh there is an error!</div>)}
-                                            {/* <div className="form-group row">
+                                                {success && (<div className="alert alert-success" role="alert"> Success</div>)}
+                                                {error && (<div className="alert alert-danger" role="alert"> Contact Vrushabh there is an error!</div>)}
+                                                {/* <div className="form-group row">
                                                 <label className="col-lg-3 col-form-label form-control-label"></label>
                                                 <div className="col-lg-9">
                                                     <input type="reset" className="btn btn-secondary col-lg-6" value="Cancel" />
                                                     <input type="reset" className="btn btn-primary col-lg-6" data-toggle="modal" data-target="#exampleModalCenter" value="Save Changes" />
                                                 </div>
                                             </div> */}
-                                        </form>
-                                    </div>
-                                    <div className="modal-footer">
-                                        <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="button" className="btn btn-success" onClick={handleSubmit}>Edit Landmark</button>
-                                    </div>
+                                            </form>
+                                        </div>
+                                        <div className="modal-footer">
+                                            <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="button" className="btn btn-success" onClick={handleSubmit}>Edit Landmark</button>
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
                         </div>

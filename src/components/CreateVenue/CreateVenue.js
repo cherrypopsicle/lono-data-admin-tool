@@ -99,7 +99,7 @@ export default function CreateVenue() {
                                 <div className="form-group row">
                                     <label className="col-lg-3 col-form-label form-control-label">PhotoUrl</label>
                                     <div className="col-lg-9" htmlFor="profileurl">
-                                        <input className="form-control" id="hyperlink" name="hyperlink" type="text" onChange={handleChange} value={values.profileurl} />
+                                        <input className="form-control" id="profileurl" name="profileurl" type="text" onChange={handleChange} value={values.profileurl} />
                                     </div>
                                 </div>
                                 <div className="form-group row">
