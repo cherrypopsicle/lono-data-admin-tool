@@ -10,7 +10,7 @@ const useForm = (callback) => {
         "photourl": "",
         "lat": "",
         "lng": "",
-        "Hyperlink": "",
+        "hyperLink": "",
         "address": "",
         "city": "",
         "landmarkType": 1
@@ -19,7 +19,8 @@ const useForm = (callback) => {
     //state for errors
     const [isSubmitting, setIsSubmitting]  = useState(false);
     const [success,setSucess] = useState(false);
-    const [error,seterror] = useState(false)
+    const [error,seterror] = useState(false);
+
 
    const handleChange = e => {
         const { name, value } = e.target
@@ -56,7 +57,8 @@ const useForm = (callback) => {
         values,
         success,
         error,
-        isSubmitting
+        isSubmitting,
+        setValues
     }
 }
 
