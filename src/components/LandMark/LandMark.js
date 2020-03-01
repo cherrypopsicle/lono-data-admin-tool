@@ -27,7 +27,7 @@ export default function LandMark() {
                     'Content-Type': 'application/json',
                     'Authorization': token
                 },
-                body: JSON.stringify(landmark)
+                body: JSON.stringify(values)
             }).then(res => {
                 if (res.status === 200) {
                     success(true);
