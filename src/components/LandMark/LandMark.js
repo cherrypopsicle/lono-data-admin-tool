@@ -6,6 +6,7 @@ import useForm from '../../hooks/useLandMark';
 
 import LocationPicker from '../LocationPicker/LocationPicker';
 import LandMarkType from '../LandMarkType/LandMarkType';
+import { isCompositeComponent } from 'react-dom/test-utils';
 
 
 export default function LandMark() {
@@ -43,9 +44,10 @@ export default function LandMark() {
             isSubmitting(false)
         }
     }
-    const { handleChange, handleLocation, values, handleSubmit, error, success, isSubmitting } = useForm(submit);
+    const { handleChange, handleLocation, values, handleSubmit, error, success, isSubmitting, setUpdateModel } = useForm(submit);
 
     const edit = (data) => {
+        setUpdateModel(data);
         setLandmark(data);
         console.log(landmark);
     }
@@ -71,7 +73,7 @@ export default function LandMark() {
 
     useEffect(() => {
         setloading(true)
-        fetch(`https://api.lono.app/api/landmark/all/Montreal/${currentPage}`).then(res => res.json()).then(result => { console.log(result); settotalPage(result.length); setloading(false); setdata(result.data.$values) })
+        fetch(`https://api.lono.app/api/landmark/all/Montreal/${currentPage}`).then(res => res.json()).then(result => { console.log(result); settotalPage(result.length); setloading(false); setdata(result.data.$values); console.log(result.data.$values); })
         if (localStorage.getItem('jwt') && localStorage.getItem('cached_token')) {
             let token = "Bearer " + localStorage.getItem('jwt').substring(1, localStorage.getItem('jwt').length - 1);
             let id = localStorage.getItem('cached_token').substring(1, localStorage.getItem('cached_token').length - 1);
@@ -207,9 +209,9 @@ export default function LandMark() {
                                             </React.Fragment>)}
                                         <td>{data.id || "null"}</td>
                                         <td>{data.name || "null"}</td>
-                                        <td >{data.description || "null"}</td>
-                                        <td>{data.hyperlink || "null"}</td>
-                                        <td>{<a href={data.photoUrl}>{data.photoUrl.slice(0, 30) + "..."}</a> || "null"}</td>
+                                        <td>{data.description || "null"}</td>
+                                        <td>{<a href={data.photoUrl}>View</a> || "null"}</td>
+                                        <td>{<a href={data.hyperLink}>Link</a> || "null"}</td>
                                         <td>{data.lat || "null"}</td>
                                         <td>{data.lng || "null"}</td>
                                         <td>{(data.address != null) ? data.address : "null"}</td>
