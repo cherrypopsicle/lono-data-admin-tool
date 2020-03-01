@@ -20,9 +20,9 @@ export default function MainRouter() {
     return (
       <NavBar>
           <Switch>
+            <Route exact path='/' component={Login}></Route>
             <PrivateRoute exact path='/home' component={Home}></PrivateRoute>
             {/* <Route exact path='/signup' component={Signup}></Route> */}
-            <Route exact path='/' component={Login}></Route>
             <PrivateRoute exact path='/venue' component={Venue}></PrivateRoute>
             <PrivateRoute exact path='/event' component={Event}></PrivateRoute>
             <PrivateRoute exact path='/landmark' component={LandMark}></PrivateRoute>
