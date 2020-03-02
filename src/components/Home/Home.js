@@ -27,7 +27,7 @@ export default function Home() {
         <div>
             <div className="card text-white bg-dark mb-3" >
                 <div className="card-body">
-                    <h5 className="card-title">Welcome Beautiful {User.name}. Here is the Quote of the Day</h5>
+                    <h5 className="card-title">Welcome cutest {User.name}. Here is the Quote of the Day</h5>
                     <h6 className="card-subtitle mb-2 text-muted">By - {quote.author}</h6>
                     <p className="card-text">{quote.quote}</p>
                 </div>
