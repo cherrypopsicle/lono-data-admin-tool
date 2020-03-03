@@ -59,7 +59,8 @@ const useForm = (callback) => {
         values,
         success,
         error,
-        isSubmitting
+        isSubmitting,
+        setValues
     }
 }
 

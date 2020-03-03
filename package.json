@@ -6,7 +6,6 @@
     "npm": "6.4.1",
     "node": "10.15.0"
   },
-  // "proxy": "https://api.lono.app",
   "dependencies": {
     "@material-ui/core": "^4.9.1",
     "@material-ui/icons": "^4.9.1",

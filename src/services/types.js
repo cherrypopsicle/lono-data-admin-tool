@@ -1,13 +1,13 @@
-export const musicType = {
-    '1': 'ElectronicDance',
+export const musicTypeEnums = {
+    '1': 'Electronic Dance',
     '2': 'Rock',
     '3': 'Jazz',
     '4': 'Dubstep',
     '5': 'RNB',
-    '6': 'CountryMusic',
+    '6': 'Country Music',
     '7': 'Electro',
-    '8': 'IndieRock',
-    '18': 'HipHop',
+    '8': 'Indie Rock',
+    '18': 'Hip Hop',
     '19': 'Pop',
     '20': 'International',
     '21': 'Classical',
@@ -16,16 +16,16 @@ export const musicType = {
     '24': 'Live Music'
   }
 
-export const musicTypeCheck = (arr)=>{
-    let result = "";
-    arr.forEach(data =>{
-        result = result + musicType[data]+ ","
-    });
-
-    return result.splice(0,result.length -1)
+export const musicTypeCheck = (musicType) => {
+    // let result = "";
+    // arr.forEach(data =>{
+    //     result = result + musicType[data]+ ","
+    // });
+    // return result.splice(0,result.length -1)
+    return musicTypeEnums[musicType];
 }
 
-const landmarkType = {
+const landmarkTypeEnums = {
   "1":"Park",
   "2":"Sightseeing",
   "3":"Lake",
@@ -37,11 +37,11 @@ const landmarkType = {
   "9":"Garden"
 }
 
-export const landmarkTypeCheck = (arr)=>{
-  return landmarkType[arr]
+export const landmarkTypeCheck = (landmarkType) => {
+  return landmarkTypeEnums[landmarkType]
 }
 
-export const actionType = {
+export const actionTypeEnums = {
 '1': 'Eat',
 '2': 'Drink',
 '3': 'Dance',
@@ -54,13 +54,14 @@ export const actionType = {
 '10': 'study'
 }
 
-export const actionTypeCheck = (arr)=>{
-  let result = arr.reduce((total,current) =>{
-    return total + ',' + actionType[current]
-  },"")
+export const actionTypeCheck = (actionType) =>{
+  // let result = arr.reduce((total,current) =>{
+  //   return total + ',' + actionType[current]
+  // },"")
 
-  let newRes = result.slice(1,result.length)
-  return newRes
+  // let newRes = result.slice(1,result.length)
+  // return newRes
+  return actionTypeEnums[actionType];
 }
 
 export const eventType = {
@@ -126,8 +127,7 @@ export const eventType = {
     return newRes
 }
 
-
-export  const foodType = {
+export const cuisineTypeEnums = {
     '1': 'American/Canadian',
     '2': 'British',
     '3': 'Carribean',
@@ -164,6 +164,10 @@ export  const foodType = {
     '34': 'Peruvian'
   }
 
+  export const cuisineTypeCheck = (cuisineType) => {
+    return cuisineTypeEnums[cuisineType];
+  } 
+
   export const occasionType = {
     '1': 'Casual',
     '2': 'Formal',
@@ -172,7 +176,7 @@ export  const foodType = {
     '5': 'special'
   }
 
-  export const drinkType = {
+  export const drinkTypeEnums = {
     '1': 'Wine',
     '2': 'Cocktail',
     '3': 'Beer',
@@ -188,7 +192,12 @@ export  const foodType = {
     '13': 'sake'
   }
 
-export const venueType = {
+  export const drinkTypeCheck = (drinkType) => {
+    return drinkTypeEnums[drinkType];
+  }
+
+export const venueTypeEnums = {
+    '0': 'No Type',
     '9': 'Bar',
     '10': 'Restaurant',
     '11': 'Cafe',
@@ -197,6 +206,12 @@ export const venueType = {
     '20': 'Office',
     '21': 'Yelp'
   }
+
+export const venueTypeCheck = (venueType) => {
+  console.log(venueType);
+  return venueTypeEnums[venueType];
+}
+
 export const groupSizeType = { '1': '1-2', '2': '2-4', '3': '5-10', '4': '10+' }
 export const budgetType = { '1': '$', '2': '$$', '3': '$$$', '4': '$$$$' }
 export const ageType = { '1': 'General', '2': '18+', '3': 'Kids/under 18' }
