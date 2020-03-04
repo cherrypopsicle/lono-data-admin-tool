@@ -105,13 +105,13 @@ export default function CreateVenue() {
                                 <div className="form-group row">
                                     <label className="col-lg-3 col-form-label form-control-label">VenueType</label>
                                     <div className="col-lg-9" htmlFor="venuetypes">
-                                        <VenueType handleChange={handleChange} value={values.venuetypes}/>
+                                        <VenueType handleChange={handleChange} value={values.venueType}/>
                                     </div>
                                 </div>
                                 <div className="form-group row">
                                     <label className="col-lg-3 col-form-label form-control-label">ActionType</label>
-                                    <div className="col-lg-9" htmlFor="actiontypes">
-                                        <ActionType handleChange={handleChange} value={values.actiontypes} />
+                                    <div className="col-lg-9" htmlFor="actionType">
+                                        <ActionType handleChange={handleChange} value={values.actionType} />
                                     </div>
                                 </div>
                                 <div className="form-group row">

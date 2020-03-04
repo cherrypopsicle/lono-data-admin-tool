@@ -190,7 +190,7 @@ export default function Venue() {
                                         </div>
                                         <div className="modal-footer">
                                             <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <button type="button" className="btn btn-success" onClick={handleSubmit}>Edit Landmark</button>
+                                            <button type="button" className="btn btn-success" onClick={handleSubmit}>Edit Venue</button>
                                         </div>
                                 </div>
                             </div>

@@ -7,7 +7,7 @@ import '../EventType/EventType.css'
 const animatedComponents = makeAnimated();
 
 export default function VenueType(props) {
-    const [state, setState] = useState([]);
+    const [state, setState] = useState({});
 
     
     const optionhashmapforreference = {
@@ -20,19 +20,23 @@ export default function VenueType(props) {
         '21': 'Yelp'
       }
 
-    const checkoption = (arr) => {
-        let currentdata = [];
-        if(arr.length === 0){
-            setState([])
-        }else{
-            arr.forEach((id)=>{
-                let data = {label:optionhashmapforreference[id],value:id};
-                currentdata.push(data)
-            })
+    const checkoption = (type) => {
+        // let currentdata = [];
+        // if(arr.length === 0){
+        //     setState([])
+        // }else{
+        //     arr.forEach((id)=>{
+        //         let data = {label:optionhashmapforreference[id],value:id};
+        //         currentdata.push(data)
+        //     })
 
-            setState(currentdata)
+        //     setState(currentdata)
+        // }
+        let data = {
+            label: optionhashmapforreference[type],
+            value: type
         }
-        
+        setState(data);
     }
 
     useEffect(() => {
