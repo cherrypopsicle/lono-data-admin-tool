@@ -64,25 +64,55 @@ export default function VenueType(props) {
       }
 
     const handleChange = async(event) => {
-        console.log(event)
-        if(event !== null){
-            let res = []
-        await event.forEach(value => res.push(value.value))
-        props.handleChange({target:{name:"venuetypes",value:res}});
-        setState(event)
-        }else{
-            props.handleChange({target:{name:"venuetypes",value:[]}})
-            setState([])
-        }
+        console.log(event);
+        switch (event.value) {
+            case "9":
+              setState(event);
+              props.handleChange({ target: { name: "venueType", value: 9 } });
+              break;
+            case "10":
+              setState(event);
+              props.handleChange({ target: { name: "venueType", value: 10 } });
+              break;
+            case "11":
+              setState(event);
+              props.handleChange({ target: { name: "venueType", value: 11 } });
+              break;
+            case "12":
+              setState(event);
+              props.handleChange({ target: { name: "venueType", value: 12 } });
+              break;
+            case "13":
+              setState(event);
+              props.handleChange({ target: { name: "venueType", value: 13 } });
+              break;
+            case "20":
+              setState(event);
+              props.handleChange({ target: { name: "venueType", value: 20 } });
+              break;
+            case "21":
+              setState(event);
+              props.handleChange({ target: { name: "venueType", value: 21 } });
+              break;
+          }
+        // if(event !== null){
+        //     let res = []
+        // await event.forEach(value => res.push(value.value))
+        // props.handleChange({target:{name:"venuetypes",value:res}});
+        // setState(event)
+        // }else{
+        //     props.handleChange({target:{name:"venuetypes",value:[]}})
+        //     setState([])
+        // }
     }
     return (
         <div>
             <Select
-                closeMenuOnSelect={false}
+                // closeMenuOnSelect={false}
                 styles={customStyles}
-                components={animatedComponents}
-                defaultValue={state}
-                isMulti
+                // components={animatedComponents}
+                // defaultValue={state}
+                // isMulti
                 options={options}
                 onChange={handleChange}
                 value={state}
