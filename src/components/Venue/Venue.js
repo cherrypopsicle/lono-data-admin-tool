@@ -4,6 +4,8 @@ import Pagination from '../Pagination/Pagination'
 import useForm from '../../hooks/useVenue';
 import ActionType from '../ActionType/ActionType';
 import MusicType from '../MusicType/MusicType';
+import VenueType from '../VenueType/VenueType';
+import CuisineType from '../CuisineType/CuisineType';
 
 export default function Venue() {
 
@@ -22,7 +24,8 @@ export default function Venue() {
     const submit = (success, error, isSubmitting) => {
         let token = "Bearer " + localStorage.getItem('jwt').substring(1, localStorage.getItem('jwt').length - 1);
         try {
-            fetch(`https://api.lono.app/api/venue/update`, {
+            fetch(`http://localhost:65049/api/venue/update`, {
+                // fetch(`https://api.lono.app/api/venue/update`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -59,7 +62,7 @@ export default function Venue() {
             }
         }).then(res => {
             if (res.status === 200) {
-                let newData = data.filter(data => data.venueId !== id)
+                let newData = data.filter(data => data.id !== id)
                 setdata(newData);
                 setloading(false);
             }
@@ -148,6 +151,12 @@ export default function Venue() {
                                                     </div>
                                                 </div>
                                                 <div className="form-group row">
+                                                    <label className="col-lg-3 col-form-label form-control-label">PhotoUrl</label>
+                                                    <div className="col-lg-9" htmlFor="profileUrl">
+                                                        <input className="form-control" id="profileUrl" name="profileUrl" type="text" onChange={handleChange} value={values.profileUrl} />
+                                                    </div>
+                                                </div>
+                                                <div className="form-group row">
                                                     <label className="col-lg-3 col-form-label form-control-label">Action Type</label>
                                                     <div className="col-lg-9" htmlFor="actionType">
                                                         <ActionType handleChange={handleChange} value={values.actionType} />
@@ -157,6 +166,18 @@ export default function Venue() {
                                                     <label className="col-lg-3 col-form-label form-control-label">Music Type</label>
                                                     <div className="col-lg-9" htmlFor="musicType">
                                                         <MusicType handleChange={handleChange} value={values.musicType} />
+                                                    </div>
+                                                </div>
+                                                <div className="form-group row">
+                                                    <label className="col-lg-3 col-form-label form-control-label">Cuisine Type</label>
+                                                    <div className="col-lg-9" htmlFor="cuisineType">
+                                                        <CuisineType handleChange={handleChange} value={values.cuisineType} />
+                                                    </div>
+                                                </div>
+                                                <div className="form-group row">
+                                                    <label className="col-lg-3 col-form-label form-control-label">Venue Type</label>
+                                                    <div className="col-lg-9" htmlFor="venueType">
+                                                        <VenueType handleChange={handleChange} value={values.venueType} />
                                                     </div>
                                                 </div>
                                                 <div className="form-group row">
@@ -240,12 +261,12 @@ export default function Venue() {
                             </thead>
                             <tbody>
                                 {data.map(data => (
-                                    <tr key={data.venueId}>
+                                    <tr key={data.id}>
                                         {User.userType !== 0 && (<React.Fragment>
-                                            <td><button type="button" className="btn btn-danger" onClick={()=>{setid(data.venueId)}} data-toggle="modal" data-target="#exampleModalCenter">Delete</button></td>
+                                            <td><button type="button" className="btn btn-danger" onClick={()=>{setid(data.id)}} data-toggle="modal" data-target="#exampleModalCenter">Delete</button></td>
                                             <td><input type="reset" className="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" onClick={() => edit(data)} value="Edit"/></td>
                                         </React.Fragment>)}
-                                        <td>{data.venueId || "null"}</td>
+                                        <td>{data.id || "null"}</td>
                                         <td>{data.name || "null"}</td>
                                         <td >{data.description || "null"}</td>
                                         <td>{(data.hyperLink != null) ? (<a href={data.hyperLink}>Link</a>) : "null"}</td>

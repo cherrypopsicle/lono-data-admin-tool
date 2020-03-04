@@ -4,6 +4,7 @@ import LocationPicker from '../LocationPicker/LocationPicker';
 import ActionType from '../ActionType/ActionType'
 import {actionTypeCheck} from '../../services/types'
 import VenueType from '../VenueType/VenueType';
+import CuisineType from '../CuisineType/CuisineType';
 
 export default function CreateVenue() {
 
@@ -103,15 +104,21 @@ export default function CreateVenue() {
                                     </div>
                                 </div>
                                 <div className="form-group row">
-                                    <label className="col-lg-3 col-form-label form-control-label">VenueType</label>
+                                    <label className="col-lg-3 col-form-label form-control-label">Venue Type</label>
                                     <div className="col-lg-9" htmlFor="venuetypes">
                                         <VenueType handleChange={handleChange} value={values.venueType}/>
                                     </div>
                                 </div>
                                 <div className="form-group row">
-                                    <label className="col-lg-3 col-form-label form-control-label">ActionType</label>
+                                    <label className="col-lg-3 col-form-label form-control-label">Action Type</label>
                                     <div className="col-lg-9" htmlFor="actionType">
                                         <ActionType handleChange={handleChange} value={values.actionType} />
+                                    </div>
+                                </div>
+                                <div className="form-group row">
+                                    <label className="col-lg-3 col-form-label form-control-label">Cuisine Type</label>
+                                    <div className="col-lg-9" htmlFor="actionType">
+                                        <CuisineType handleChange={handleChange} value={values.cuisineType} />
                                     </div>
                                 </div>
                                 <div className="form-group row">

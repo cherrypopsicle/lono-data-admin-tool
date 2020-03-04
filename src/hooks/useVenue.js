@@ -4,7 +4,8 @@ import { useState } from 'react';
 
 const useForm = (callback) => {
 
-    const defaultProps =   {
+    const defaultProps = {
+        "id": 0,
         "name": "",
         "description": "",
         "phone": "",
@@ -16,6 +17,7 @@ const useForm = (callback) => {
         "profileurl": "",
         "actionType": 1,
         "venueType": 9,
+        "drinkType": 1,
         "musicType": 1,
         "cuisineType": 1,
         "openclose": [{}, {}, {}, {}, {}, {}, {}]
