@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { musicTypeCheck, actionTypeCheck, venueTypeCheck, drinkTypeCheck, cuisineTypeCheck } from '../../services/types'
 import Pagination from '../Pagination/Pagination'
 import useForm from '../../hooks/useVenue';
+import ActionType from '../ActionType/ActionType';
+import MusicType from '../MusicType/MusicType';
 
 export default function Venue() {
 
@@ -66,6 +68,7 @@ export default function Venue() {
 
     const edit = (data) => {
         setValues(data);
+        console.log(data);
     }
     // handleSearch data
     const handleSearch = (e) => {
@@ -87,7 +90,7 @@ export default function Venue() {
                 headers: {
                     'Authorization': token
                 }
-            }).then(res => { res.json().then(result => setUser(result)) })
+            }).then(res => { res.json().then(result => setUser(result)); })
         }
     }, [currentPage]);
 
@@ -132,16 +135,28 @@ export default function Venue() {
                                                         <textarea className="form-control" id="description" type="text" name="description" onChange={handleChange} value={values.description} />
                                                     </div>
                                                 </div>
-                                                <div className="form-group row">
-                                                    <label className="col-lg-3 col-form-label form-control-label" htmlFor="photoUrl">Photourl</label>
+                                                {/* <div className="form-group row">
+                                                    <label className="col-lg-3 col-form-label form-control-label" htmlFor="photoUrl">Photo URL</label>
                                                     <div className="col-lg-9" htmlFor="photoUrl">
                                                         <input className="form-control" id="photoUrl" name="photoUrl" type="text" onChange={handleChange} value={values.profileUrl} />
                                                     </div>
-                                                </div>
+                                                </div> */}
                                                 <div className="form-group row">
                                                     <label className="col-lg-3 col-form-label form-control-label">HyperLink</label>
                                                     <div className="col-lg-9" htmlFor="hyperLink">
                                                         <input className="form-control" id="hyperLink" name="hyperLink" type="text" onChange={handleChange} value={values.hyperLink} />
+                                                    </div>
+                                                </div>
+                                                <div className="form-group row">
+                                                    <label className="col-lg-3 col-form-label form-control-label">Action Type</label>
+                                                    <div className="col-lg-9" htmlFor="actionType">
+                                                        <ActionType handleChange={handleChange} value={values.actionType} />
+                                                    </div>
+                                                </div>
+                                                <div className="form-group row">
+                                                    <label className="col-lg-3 col-form-label form-control-label">Music Type</label>
+                                                    <div className="col-lg-9" htmlFor="musicType">
+                                                        <MusicType handleChange={handleChange} value={values.musicType} />
                                                     </div>
                                                 </div>
                                                 <div className="form-group row">

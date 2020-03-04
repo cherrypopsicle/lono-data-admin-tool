@@ -14,10 +14,10 @@ const useForm = (callback) => {
         "lat": "", 
         "lng": "",
         "profileurl": "",
-        "actiontypes": [1,2],
-        "venuetypes": [9,10],
-        "musictypes": [],
-        "cuisinetypes": [],
+        "actionType": 1,
+        "venueType": 9,
+        "musicType": 1,
+        "cuisineType": 1,
         "openclose": [{}, {}, {}, {}, {}, {}, {}]
     }
     const [values, setValues] = useState(defaultProps);
