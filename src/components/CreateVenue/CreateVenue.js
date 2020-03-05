@@ -5,6 +5,7 @@ import ActionType from '../ActionType/ActionType'
 import {actionTypeCheck} from '../../services/types'
 import VenueType from '../VenueType/VenueType';
 import CuisineType from '../CuisineType/CuisineType';
+import MusicType from '../MusicType/MusicType';
 
 export default function CreateVenue() {
 
@@ -101,6 +102,12 @@ export default function CreateVenue() {
                                     <label className="col-lg-3 col-form-label form-control-label">PhotoUrl</label>
                                     <div className="col-lg-9" htmlFor="profileurl">
                                         <input className="form-control" id="profileurl" name="profileurl" type="text" onChange={handleChange} value={values.profileurl} />
+                                    </div>
+                                </div>
+                                <div className="form-group row">
+                                    <label className="col-lg-3 col-form-label form-control-label">Music Type</label>
+                                    <div className="col-lg-9" htmlFor="musicType">
+                                        <MusicType handleChange={handleChange} value={values.musicType} />
                                     </div>
                                 </div>
                                 <div className="form-group row">

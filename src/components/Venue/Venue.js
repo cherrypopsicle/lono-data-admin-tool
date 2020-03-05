@@ -6,6 +6,7 @@ import ActionType from '../ActionType/ActionType';
 import MusicType from '../MusicType/MusicType';
 import VenueType from '../VenueType/VenueType';
 import CuisineType from '../CuisineType/CuisineType';
+import LocationPicker from '../LocationPicker/LocationPicker';
 
 export default function Venue() {
 
@@ -178,6 +179,12 @@ export default function Venue() {
                                                     <label className="col-lg-3 col-form-label form-control-label">Venue Type</label>
                                                     <div className="col-lg-9" htmlFor="venueType">
                                                         <VenueType handleChange={handleChange} value={values.venueType} />
+                                                    </div>
+                                                </div>
+                                                <div className="form-group row">
+                                                    <label className="col-lg-3 col-form-label form-control-label">Address</label>
+                                                    <div className="col-lg-9" htmlFor="address">
+                                                        <LocationPicker address={values.address} select={handleLocation} />
                                                     </div>
                                                 </div>
                                                 <div className="form-group row">

@@ -140,7 +140,7 @@ export default function LandMark() {
                                                 <div className="form-group row">
                                                     <label className="col-lg-3 col-form-label form-control-label">Address</label>
                                                     <div className="col-lg-9" htmlFor="address">
-                                                        <LocationPicker address={values.address} select={handleLocation} />
+                                                        <LocationPicker address={values.address || 'test'} select={handleLocation} />
                                                     </div>
                                                 </div>
                                                 <div className="form-group row">

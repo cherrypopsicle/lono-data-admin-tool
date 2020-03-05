@@ -9,6 +9,7 @@ export default function MusicType(props) {
   const [state, setState] = useState();
 
   const optionhashmapforreference = {
+    "0": "None",
     "1": "ElectronicDance",
     "2": "Rock",
     "3": "Jazz",
@@ -35,6 +36,7 @@ export default function MusicType(props) {
   }, []);
 
   const options = [
+    { value: "0", label: "None" },
     { value: "1", label: "ElectronicDance" },
     { value: "2", label: "Rock" },
     { value: "3", label: "Jazz" },
@@ -63,6 +65,10 @@ export default function MusicType(props) {
 
   const handleChange = async event => {
     switch (event.value) {
+      case "0":
+        setState(event);
+        props.handleChange({ target: { name: "musicType", value: 0 } });
+        break;
       case "1":
         setState(event);
         props.handleChange({ target: { name: "musicType", value: 1 } });

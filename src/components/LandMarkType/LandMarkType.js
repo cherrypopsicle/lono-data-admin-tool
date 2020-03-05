@@ -19,6 +19,7 @@ export default function LandMarkType(props) {
 
   const checkoption = id => {
     setState({ label: optionhashmapforreference[id], value: id });
+    console.log(props.value);
   };
 
   useEffect(() => {

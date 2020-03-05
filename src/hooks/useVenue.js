@@ -17,9 +17,9 @@ const useForm = (callback) => {
         "profileurl": "",
         "actionType": 1,
         "venueType": 9,
-        "drinkType": 1,
-        "musicType": 1,
-        "cuisineType": 1,
+        "drinkType": 0,
+        "musicType": 0,
+        "cuisineType": 0,
         "openclose": [{}, {}, {}, {}, {}, {}, {}]
     }
     const [values, setValues] = useState(defaultProps);

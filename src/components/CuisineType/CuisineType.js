@@ -44,6 +44,7 @@ export default function CuisineType(props) {
      */
 
     const optionhashmapforreference = {
+        '0': 'None',
         '1': 'American',
         '2': 'British',
         '3': 'Carribean',
@@ -99,7 +100,12 @@ export default function CuisineType(props) {
     }, [])
 
 
-    const options = [{
+    const options = [
+        {
+            value: "0",
+            label: optionhashmapforreference['0']
+        },
+        {
             value: "1",
             label: optionhashmapforreference['1']
         }, {
@@ -189,7 +195,7 @@ export default function CuisineType(props) {
         }, {
             value: "29",
             label: optionhashmapforreference['29']
-        },
+        }
     ];
 
     const customStyles = {
@@ -204,6 +210,15 @@ export default function CuisineType(props) {
     const handleChange = async (event) => {
         console.log(event);
         switch (event.value) {
+            case "0":
+                setState(event);
+                props.handleChange({
+                    target: {
+                        name: "cuisineType",
+                        value: 0
+                    }
+                });
+                break;
             case "1":
                 setState(event);
                 props.handleChange({

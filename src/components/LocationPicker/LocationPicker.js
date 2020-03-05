@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { getPlace, getPrediction } from "./location-data";
 
 export default function LocationPicker(props) {
@@ -18,6 +18,10 @@ export default function LocationPicker(props) {
       });
     }
   };
+
+  useEffect(() => {
+    setaddress(props.address);
+  },"")
 
   const handleSelect = place => {
     setloading(true);
@@ -45,7 +49,7 @@ export default function LocationPicker(props) {
         name="address"
         onChange={handleChange}
         value={address}
-        placeholder="Enter Address"
+        placeholder={address}
         readOnly={loading}
       />
       {predictions && (
